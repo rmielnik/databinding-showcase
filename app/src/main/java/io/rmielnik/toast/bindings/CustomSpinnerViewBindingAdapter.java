@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
-public class CustomSpinerViewBindingAdapter {
+public class CustomSpinnerViewBindingAdapter {
 
     @BindingAdapter("selectedValue")
     public static void setSelectedValue(Spinner spinner, String newValue) {
