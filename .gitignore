@@ -2,6 +2,9 @@
 *.apk
 *.ap_
 
+#  don't include files from markdown plugin for android studio
+.idea
+
 # Files for the ART/Dalvik VM
 *.dex
 
