@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="io.rmielnik.toast.calculations.CalculationsViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="io.rmielnik.toast.calculations.CalculationsActivity">
+
+        <TextView
+            android:id="@+id/service_a_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily='@{"BloggerSans"}'
+            android:text='@{model.aResult}'
+            android:textStyle='@{"Medium"}'
+            tools:text="service a status" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/service_a_status"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily='@{"BloggerSans"}'
+            android:text='@{model.bResult}'
+            android:textStyle='@{"Medium"}'
+            tools:text="service b status" />
+
+        <Button
+            android:id="@+id/run"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily='@{"BloggerSans"}'
+            android:text='@{model.greeting + "!\nStart calculations!"}'
+            android:textStyle='@{"Bold"}' />
+
+    </RelativeLayout>
+</layout>
