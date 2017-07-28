@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
-        <import type="android.view.View" />
+        <import type="android.view.View"/>
 
         <variable
             name="model"
-            type="io.rmielnik.toast.calculations.CalculationsViewModel" />
+            type="io.rmielnik.toast.calculations.CalculationsViewModel"/>
     </data>
 
     <RelativeLayout
@@ -27,7 +27,7 @@
             android:fontFamily='@{"BloggerSans"}'
             android:text='@{model.aResult}'
             android:textStyle='@{"Medium"}'
-            tools:text="service a status" />
+            tools:text="service a status"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
             android:fontFamily='@{"BloggerSans"}'
             android:text='@{model.bResult}'
             android:textStyle='@{"Medium"}'
-            tools:text="service b status" />
+            tools:text="service b status"/>
 
         <Button
             android:id="@+id/run"
@@ -46,8 +46,9 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily='@{"BloggerSans"}'
+            android:onClick="@{(v) -> model.calculate()}"
             android:text='@{model.greeting + "!\nStart calculations!"}'
-            android:textStyle='@{"Bold"}' />
+            android:textStyle='@{"Bold"}'/>
 
     </RelativeLayout>
 </layout>
