@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
-        <import type="android.view.View" />
+        <import type="android.view.View"/>
 
         <variable
-            name="form"
-            type="io.rmielnik.toast.login.LoginFormViewModel" />
-
-        <variable
-            name="controller"
-            type="io.rmielnik.toast.login.LoginController" />
+            name="viewModel"
+            type="io.rmielnik.toast.login.LoginFormViewModel"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -22,7 +18,7 @@
         tools:context="io.rmielnik.toast.login.LoginActivity">
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/loginField"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
@@ -30,19 +26,19 @@
             android:layout_marginRight="24dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
-            android:enabled="@{!form.inProgress}"
+            android:enabled="@{!viewModel.inProgress}"
             android:fontFamily='@{"BloggerSans"}'
             android:hint="Type your username"
             android:inputType="text"
-            android:text="@={form.login}"
+            android:text="@={viewModel.login}"
             android:textStyle='@{"Medium"}'
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner" />
+            app:layout_constraintTop_toBottomOf="@+id/spinner"/>
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/passwordField"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
@@ -50,16 +46,16 @@
             android:layout_marginRight="24dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
-            android:enabled="@{editText2.enabled}"
+            android:enabled="@{loginField.enabled}"
             android:fontFamily='@{"BloggerSans"}'
             android:hint="Password goes here"
             android:inputType="textPassword"
-            android:text="@={form.password}"
+            android:text="@={viewModel.password}"
             android:textStyle='@{"Medium"}'
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText2" />
+            app:layout_constraintTop_toBottomOf="@+id/loginField"/>
 
         <Button
             android:id="@+id/button"
@@ -70,14 +66,14 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:enabled="@{editText2.enabled}"
+            android:enabled="@{loginField.enabled}"
             android:fontFamily='@{"BloggerSans"}'
-            android:onClick='@{(v) -> controller.login()}'
+            android:onClick='@{(v) -> viewModel.logIn()}'
             android:text="Login"
             android:textStyle='@{"Bold"}'
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordField"/>
 
         <ProgressBar
             android:layout_width="wrap_content"
@@ -87,23 +83,25 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:visibility="@{form.inProgress ? View.VISIBLE : View.GONE}"
+            android:visibility="@{viewModel.inProgress ? View.VISIBLE : View.GONE}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button" />
+            app:layout_constraintTop_toBottomOf="@+id/button"/>
 
         <Spinner
             android:id="@+id/spinner"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
             android:layout_marginRight="24dp"
             android:layout_marginTop="32dp"
-            android:enabled="@{editText2.enabled}"
+            android:enabled="@{loginField.enabled}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:selectedValue="@={form.greeting}" />
+            app:selectedValue="@={viewModel.greeting}"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"/>
     </android.support.constraint.ConstraintLayout>
 
 </layout>
